@@ -1,11 +1,8 @@
-// controllers/walletController.js
 const axios = require('axios');
 
-// URL base del servicio SOAP en Laravel
-const SOAP_BASE_URL = 'http://127.0.0.1:8000/soap';
+const SOAP_BASE_URL = 'http://localhost/soap-laravel/public/soap';
 
 module.exports = {
-    // Registrar un cliente
     registerClient: async (req, res) => {
         try {
             const response = await axios.post(`${SOAP_BASE_URL}/register`, req.body);
@@ -15,7 +12,6 @@ module.exports = {
         }
     },
 
-    // Recargar billetera
     rechargeWallet: async (req, res) => {
         try {
             const response = await axios.post(`${SOAP_BASE_URL}/recharge`, req.body);
@@ -25,7 +21,6 @@ module.exports = {
         }
     },
 
-    // Iniciar el proceso de pago
     pay: async (req, res) => {
         try {
             const response = await axios.post(`${SOAP_BASE_URL}/pay`, req.body);
@@ -35,7 +30,6 @@ module.exports = {
         }
     },
 
-    // Confirmar pago
     confirmPayment: async (req, res) => {
         try {
             const response = await axios.post(`${SOAP_BASE_URL}/confirm-payment`, req.body);
@@ -45,7 +39,6 @@ module.exports = {
         }
     },
 
-    // Consultar saldo
     checkBalance: async (req, res) => {
         try {
             const response = await axios.post(`${SOAP_BASE_URL}/balance`, req.body);
